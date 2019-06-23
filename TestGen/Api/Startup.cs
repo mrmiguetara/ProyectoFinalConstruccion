@@ -27,10 +27,11 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("OzunaConnection");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<GeneratorDbContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("OzunaConnection")));
+                options.UseMySQL(connectionString, builder => builder.MigrationsAssembly("Api")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

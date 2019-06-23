@@ -1,4 +1,5 @@
 using System.Configuration;
+using Core.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -8,8 +9,10 @@ namespace Persistence
 
         public GeneratorDbContext(DbContextOptions<GeneratorDbContext> options) : base(options)
         {
+            
         }
 
+        public DbSet<Exam> Exams { get; set; }
     }
 
 }
