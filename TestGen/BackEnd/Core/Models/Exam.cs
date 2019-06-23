@@ -6,10 +6,8 @@ namespace Core.Models
     /// <summary>
     /// Represents an Exam
     /// </summary>
-    public class Exam
+    public class Exam: BaseEntity
     {
-        public int Id { get; set; }
-        
         public string Subject { get; set; }
         
         public string Teacher { get; set; }
