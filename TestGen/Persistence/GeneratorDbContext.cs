@@ -7,7 +7,9 @@ namespace Persistence
     {
 
         public GeneratorDbContext(DbContextOptions<GeneratorDbContext> options) : base(options)
-        { }
-        
+        {
+        }
+
     }
 
+}
