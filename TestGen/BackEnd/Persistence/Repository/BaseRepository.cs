@@ -26,7 +26,10 @@ namespace Persistence.Repository
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var entityEntry = _context.Entry(entity);
+
+            entityEntry.State = EntityState.Modified;
+
         }
 
         public ISet<TEntity> Get() => _set.ToHashSet();
