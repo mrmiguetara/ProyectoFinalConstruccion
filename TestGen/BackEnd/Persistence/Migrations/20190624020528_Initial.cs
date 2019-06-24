@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Api.Migrations
+namespace Persistence.Migrations
 {
-    public partial class allModels : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,10 +96,10 @@ namespace Api.Migrations
                 columns: new[] { "Id", "Created", "Type", "Updated" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2019, 6, 23, 19, 4, 24, 4, DateTimeKind.Local).AddTicks(5670), "Verdadero o Falso", new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(6280) },
-                    { 2, new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7800), "Seleccion Multiple", new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7800) },
-                    { 3, new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7810), "Seleccion Simple", new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7810) },
-                    { 4, new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7820), "Completa", new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7820) }
+                    { 1, new DateTime(2019, 6, 23, 22, 5, 27, 732, DateTimeKind.Local).AddTicks(2380), "Verdadero o Falso", new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(7300) },
+                    { 2, new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8340), "Seleccion Multiple", new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8350) },
+                    { 3, new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360), "Seleccion Simple", new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360) },
+                    { 4, new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360), "Completa", new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360) }
                 });
 
             migrationBuilder.CreateIndex(

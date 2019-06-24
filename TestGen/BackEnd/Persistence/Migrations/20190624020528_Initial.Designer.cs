@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
-namespace Api.Migrations
+namespace Persistence.Migrations
 {
     [DbContext(typeof(GeneratorDbContext))]
-    partial class GeneratorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190624020528_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,30 +85,30 @@ namespace Api.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2019, 6, 23, 19, 4, 24, 4, DateTimeKind.Local).AddTicks(5670),
+                            Created = new DateTime(2019, 6, 23, 22, 5, 27, 732, DateTimeKind.Local).AddTicks(2380),
                             Type = "Verdadero o Falso",
-                            Updated = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(6280)
+                            Updated = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(7300)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7800),
+                            Created = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8340),
                             Type = "Seleccion Multiple",
-                            Updated = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7800)
+                            Updated = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8350)
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7810),
+                            Created = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360),
                             Type = "Seleccion Simple",
-                            Updated = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7810)
+                            Updated = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360)
                         },
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7820),
+                            Created = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360),
                             Type = "Completa",
-                            Updated = new DateTime(2019, 6, 23, 19, 4, 24, 13, DateTimeKind.Local).AddTicks(7820)
+                            Updated = new DateTime(2019, 6, 23, 22, 5, 27, 738, DateTimeKind.Local).AddTicks(8360)
                         });
                 });
 

@@ -29,7 +29,7 @@ namespace Api
             //DB CONTEXT DEPENDENCY
             services.AddDbContext<GeneratorDbContext>(options =>
                 options.UseMySQL(connectionString, builder => builder.MigrationsAssembly("Api")));
-            
+
             //REPOSITORY DEPENDENCIES
             services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
