@@ -1,0 +1,11 @@
+
+@import './theme.scss';
+
+.background-view {
+    background-image: url('./assets/Background.png');
+    width: 100%;
+    height: 100vh;
+    background-size: 153em;
+    background-position-y: -8em; 
+    background-position-x: -2em; 
+}
