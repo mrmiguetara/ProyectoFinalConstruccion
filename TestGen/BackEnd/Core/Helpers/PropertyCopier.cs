@@ -12,7 +12,7 @@ namespace Core.Helpers
 
             foreach (var sourceProperty in sourceProperties)
             {
-                if (skipBaseEntityProperties && (sourceProperty.Name == "Id" || sourceProperty.Name == "Created" || sourceProperty.Name == "Updated"))
+                if (skipBaseEntityProperties && (sourceProperty.Name == "Id" || sourceProperty.Name == "Created"))
                     continue;
                     
                 foreach (var destinationProperty in destinationProperties)

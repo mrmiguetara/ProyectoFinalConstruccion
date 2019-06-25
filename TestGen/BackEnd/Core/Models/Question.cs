@@ -16,6 +16,7 @@ namespace Core.Models
         
         public string Answer { get; set; }
         
+        [Required]
         public int SectionId { get; set; }
         
         public Section Section { get; set; }
