@@ -19,6 +19,13 @@ namespace Persistence.Repository
         {
             return _context.Sections.ToHashSet();    
         }
-        
+
+        public void DeleteSectionsForExam(int examId)
+        {
+            var sections = _context.Sections.Where(section => section.ExamId == examId);
+            
+            _context.RemoveRange(sections);
+            
+        }
     }
 }

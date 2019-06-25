@@ -8,5 +8,7 @@ namespace Core.Repository
 
         ISet<Section> GetSectionsForExam(int examId);
 
+        void DeleteSectionsForExam(int examId);
+
     }
 }
