@@ -17,6 +17,21 @@ namespace Persistence.Repository
             {
                 return _context.Questions.Where(question => question.SectionId == sectionId).ToHashSet();
             }
+
+            public void DeleteQuestionsForSection(int sectionId)
+            {
+                var questions = FindAll(question => question.SectionId == sectionId);
+                
+                _context.RemoveRange(questions);
+            }
+
+            public void DeleteQuestionsForExam(int examId)
+            {
+                var questions = _context.Sections.Where(section => section.ExamId == examId)
+                    .SelectMany(section => section.Questions).ToList();
+                    
+                _context.RemoveRange(questions);
+            }
         }
     
 }

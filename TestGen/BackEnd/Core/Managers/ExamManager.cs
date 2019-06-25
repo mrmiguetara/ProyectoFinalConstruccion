@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Helpers;
 using Core.Models;
 using Core.Repository;
 
@@ -60,11 +62,52 @@ namespace Core.Managers
             return exam;
         }
 
-        public void AddExam(Exam exam)
+        public Exam AddExam(Exam exam)
         {
-            _examRepository.Create(exam);
+            try
+            {
+                _examRepository.Create(exam);
+
+                _examRepository.Save();
+
+                return exam;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public Exam UpdateExam(Exam exam)
+        {
+            Exam trackedExam = _examRepository.Find(exam.Id);
+            
+            PropertyCopier<Exam, Exam>.Copy(exam, trackedExam);
+            
+            _examRepository.Update(trackedExam);
             
             _examRepository.Save();
+
+            return trackedExam;
+        }
+
+
+        public Exam DeleteExam(int examId)
+        {
+            Exam foundExam = _examRepository.Find(examId);
+
+            if (foundExam != null)
+            {
+                _questionRepository.DeleteQuestionsForExam(examId);
+                
+                _sectionRepository.DeleteSectionsForExam(examId);
+                
+                _examRepository.Delete(examId);
+
+                _examRepository.Save();
+            }
+
+            return foundExam;
         }
     }
 }
