@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <div class="row justify-content-center">
-      <div class="col-xs-10 col-sm-8 col-md-7">
+      <div class="col-xs-12 col-sm-10 col-md-7">
         <div class="card account-card">
           <div class="card-body">
             <slot></slot>

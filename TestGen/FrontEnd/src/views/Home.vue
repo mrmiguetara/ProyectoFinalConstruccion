@@ -6,7 +6,7 @@
       <div class="row align-items-center" style="height: 80vh;">
         <div class="col">
           <div class="text-center">
-            <img src="../assets/logo.png" width="700">
+            <img src="../assets/logo.png" width="700" class="img-fluid"> 
           </div>
           <account-center-card>
             <login-form />
