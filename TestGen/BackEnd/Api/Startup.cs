@@ -1,4 +1,6 @@
-﻿using Core.Managers;
+﻿using Api.Mappings;
+using AutoMapper;
+using Core.Managers;
 using Core.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +41,12 @@ namespace Api
             //MANAGERS DEPENDENCIES
             services.AddScoped<ExamManager, ExamManager>();
             services.AddScoped<QuestionTypeManager, QuestionTypeManager>();
+            services.AddScoped<QuestionManager, QuestionManager>();
+            services.AddScoped<SectionManager, SectionManager>();
+            
+            //MAPPER INITIALIZATION
+            Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
+            services.AddAutoMapper();
 
         }
 
