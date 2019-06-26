@@ -21,9 +21,9 @@ namespace DocumentGeneration
         private List<Section> sections = new List<Section>();
         private Exam exam;
 
-        public PdfBuilder(List<Section> sections, Exam exam)
+        public PdfBuilder(Exam exam)
         {
-            this.sections = sections;
+            this.sections = exam.Sections.ToList();
             this.exam = exam;
         }
         public Stream WordDocument()

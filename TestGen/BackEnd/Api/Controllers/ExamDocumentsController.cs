@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using Api.ViewModels;
@@ -29,7 +30,7 @@ namespace Api.Controllers
 
             var exam = _examManager.GetExamWithSectionAndQuestions(id);
 
-            var pdfBuilder = new PdfBuilder(exam.Sections.ToList());
+            var pdfBuilder = new PdfBuilder(exam);
 
             var stream = pdfBuilder.WordDocument();
             
@@ -43,7 +44,7 @@ namespace Api.Controllers
             var docResponse = new DocumentResponse
             {
                 BinaryFile = byteArray,
-                FileName = "ARCHIVO.docx",
+                FileName = $"{exam.Subject}_{exam.Teacher}_{DateTime.Now.ToShortTimeString()}.docx",
                 ApplicationFormat = "application/ms-word"
             };
 
