@@ -33,9 +33,7 @@ namespace Api.Controllers
             var pdfBuilder = new PdfBuilder(exam);
 
             var stream = pdfBuilder.WordDocument();
-            
-            //TODO: Convert to byte array
-            
+
             MemoryStream memoryStream = new MemoryStream();
             stream.CopyTo(memoryStream);
 
