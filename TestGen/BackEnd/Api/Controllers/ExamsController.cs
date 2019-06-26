@@ -15,11 +15,14 @@ namespace Api.Controllers
     public class ExamsController : Controller
     {
         private readonly ExamManager _examManager;
+        private readonly SectionManager _sectionManager;
         public ExamsController(
-            ExamManager examManager
+            ExamManager examManager,
+            SectionManager sectionManager
             )
         {
             _examManager = examManager;
+            _sectionManager = sectionManager;
         }
 
         [HttpGet]
@@ -48,7 +51,10 @@ namespace Api.Controllers
         [HttpGet("document/{id}")]
         public IActionResult GetDocument(int id)
         {
-            PdfBuilder pdfBuilder = new PdfBuilder();
+
+            var sections = _sectionManager.GetSectionsForExam(id).Select(section => section.Instruction).ToList();
+            
+            PdfBuilder pdfBuilder = new PdfBuilder(sections);
 
             Stream file = pdfBuilder.WordDocument();
             

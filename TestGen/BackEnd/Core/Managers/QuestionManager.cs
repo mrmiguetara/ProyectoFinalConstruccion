@@ -9,20 +9,20 @@ namespace Core.Managers
     public class QuestionManager
     {
         private readonly IQuestionRepository _questionRepository;
-        private readonly SectionManager _sectionManager;
+        private readonly ISectionRepository _sectionRepository;
 
         public QuestionManager(
             IQuestionRepository questionRepository,
-            SectionManager sectionManager
+            ISectionRepository sectionRepository
         )
         {
             _questionRepository = questionRepository;
-            _sectionManager = sectionManager;
+            _sectionRepository = sectionRepository;
         }
 
         public ISet<Question> GetQuestionsForSection(int sectionId)
         {
-            var section = _sectionManager.GetSingleSection(sectionId);
+            var section = _sectionRepository.Find(sectionId);
 
             if (section == null)
             {
@@ -41,7 +41,7 @@ namespace Core.Managers
         
         public Question AddNewQuestion(Question question, int sectionId)
         {
-            if (_sectionManager.GetSingleSection(sectionId) == null)
+            if (_sectionRepository.Find(sectionId) == null)
             {
                 return null;
             }
