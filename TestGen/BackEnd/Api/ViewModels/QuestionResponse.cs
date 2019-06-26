@@ -3,6 +3,8 @@ namespace Api.ViewModels
     public class QuestionResponse
     {
         
+        public int Id { get; set; }
+        
         public string Title { get; set; }
         
         public string Options { get; set; }

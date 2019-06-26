@@ -72,7 +72,7 @@ namespace Core.Managers
 
                 return exam;
             }
-            catch (Exception e)
+            catch 
             {
                 return null;
             }

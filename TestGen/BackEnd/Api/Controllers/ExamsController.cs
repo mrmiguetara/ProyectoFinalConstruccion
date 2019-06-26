@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Api.ViewModels;
 using AutoMapper;
 using Core.Managers;
 using Core.Models;
+using DocumentGeneration;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -14,7 +16,6 @@ namespace Api.Controllers
     {
         private readonly ExamManager _examManager;
         private readonly SectionManager _sectionManager;
-
         public ExamsController(
             ExamManager examManager,
             SectionManager sectionManager
