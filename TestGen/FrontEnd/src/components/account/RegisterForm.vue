@@ -30,7 +30,7 @@
         
         
     </div>
-</template>  
+</template>
 
 <script>
 import LoginForm from "./LoginForm";
