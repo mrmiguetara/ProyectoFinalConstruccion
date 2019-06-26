@@ -23,7 +23,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("exam/{examId}")]
-        public IActionResult GetAllForTest(int examId)
+        public IActionResult GetSectionsForExam(int examId)
         {
             var sections = _sectionManager.GetSectionsForExam(examId);
 
@@ -54,13 +54,13 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(SectionRequest sectionRequest)
+        public IActionResult Create([FromBody] SectionRequest sectionRequest)
         {
             var section = Mapper.Map<Section>(sectionRequest);
 
             if (!_examManager.Exists(sectionRequest.ExamId))
             {
-                return BadRequest("The exam Id is not real");
+                return BadRequest("The exam id is not real");
             }
             
             _sectionManager.AddSection(section);
@@ -79,6 +79,7 @@ namespace Api.Controllers
                 return BadRequest();
             }
 
+            section.ExamId = search.ExamId;
             var resultSection = _sectionManager.UpdateSection(section);
 
             return Ok(resultSection);

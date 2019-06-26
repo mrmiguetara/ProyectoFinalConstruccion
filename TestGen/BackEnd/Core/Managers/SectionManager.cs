@@ -53,6 +53,8 @@ namespace Core.Managers
             PropertyCopier<Section, Section>.Copy(section, trackedSection);
             
             trackedSection.Updated = DateTime.Now;
+
+            trackedSection.Questions = _questionRepository.GetQuestionsForSection(section.Id);
             
             _sectionRepository.Update(trackedSection);
             
