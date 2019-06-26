@@ -10,14 +10,14 @@ namespace Core.Managers
     public class SectionManager
     {
         private readonly ISectionRepository _sectionRepository;
-        private readonly QuestionManager _questionManager;
+        private readonly IQuestionRepository _questionRepository;
 
         public SectionManager(
             ISectionRepository sectionRepository, 
-            QuestionManager questionManager)
+            IQuestionRepository questionRepository)
         {
             _sectionRepository = sectionRepository;
-            _questionManager = questionManager;
+            _questionRepository = questionRepository;
         }
 
         public ISet<Section> GetSectionsForExam(int examId)
@@ -42,7 +42,7 @@ namespace Core.Managers
 
             if (questionsIncluded)
             {
-                section.Questions = _questionManager.GetQuestionsForSection(section.Id);
+                section.Questions = _questionRepository.GetQuestionsForSection(id);
             }
 
             return section;
@@ -56,7 +56,7 @@ namespace Core.Managers
             
             trackedSection.Updated = DateTime.Now;
 
-            trackedSection.Questions = _questionManager.GetQuestionsForSection(section.Id);
+            trackedSection.Questions = _questionRepository.GetQuestionsForSection(trackedSection.Id);
 
             _sectionRepository.Update(trackedSection);
             
@@ -95,7 +95,7 @@ namespace Core.Managers
 
         public bool HasQuestions(int id)
         {
-            return _questionManager.GetQuestionsForSection(id).Count > 0;
+            return _questionRepository.GetQuestionsForSection(id).Count > 0;
         }
     }
 }

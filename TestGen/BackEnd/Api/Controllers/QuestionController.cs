@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Api.ViewModels;
 using AutoMapper;
 using Core.Managers;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
+    [Route("api/questions")]
     public class QuestionController : Controller
     {
 
@@ -37,7 +39,8 @@ namespace Api.Controllers
                 return NoContent();
             }
 
-            return Ok(questions);
+            var response = Mapper.Map<ISet<QuestionResponse>>(questions);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -50,7 +53,9 @@ namespace Api.Controllers
                 return NotFound();
             }
 
-            return Ok(question);
+            var response = Mapper.Map<QuestionResponse>(question);
+
+            return Ok(response);
         }
 
 
@@ -89,8 +94,10 @@ namespace Api.Controllers
             {
                 return BadRequest();
             }
+            
+            var response = Mapper.Map<QuestionResponse>(result);
 
-            return Ok(result);
+            return Ok(response);
         }
 
 
