@@ -17,7 +17,7 @@ namespace Persistence.Repository
 
         public ISet<Section> GetSectionsForExam(int examId)
         {
-            return _context.Sections.ToHashSet();    
+            return FindAll(section => section.ExamId == examId);
         }
 
         public void DeleteSectionsForExam(int examId)

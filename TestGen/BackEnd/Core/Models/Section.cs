@@ -9,6 +9,7 @@ namespace Core.Models
         [Required]
         public string Instruction { get; set; }
         
+        [Required]
         public int ExamId { get; set; }
         
         public Exam Exam { get; set; }

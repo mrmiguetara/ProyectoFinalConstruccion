@@ -84,6 +84,8 @@ namespace Core.Managers
             
             PropertyCopier<Exam, Exam>.Copy(exam, trackedExam);
             
+            trackedExam.Updated = DateTime.Now;
+
             _examRepository.Update(trackedExam);
             
             _examRepository.Save();
@@ -108,6 +110,13 @@ namespace Core.Managers
             }
 
             return foundExam;
+        }
+
+        public bool Exists(int id)
+        {
+            var exam = _examRepository.Find(id);
+
+            return exam != null;
         }
     }
 }
