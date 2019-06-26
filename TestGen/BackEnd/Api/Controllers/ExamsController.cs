@@ -47,24 +47,7 @@ namespace Api.Controllers
             
             return Json(response);
         }
-        
-        [HttpGet("document/{id}")]
-        public IActionResult GetDocument(int id)
-        {
 
-            var sections = _sectionManager.GetSectionsForExam(id).Select(section => section.Instruction).ToList();
-            
-            PdfBuilder pdfBuilder = new PdfBuilder(sections);
-
-            Stream file = pdfBuilder.WordDocument();
-            
-            FileStreamResult fileStreamResult = new FileStreamResult(file, "application/ms-word");
-
-            fileStreamResult.FileDownloadName = $"Test {id}.docx";
-
-            return fileStreamResult;
-        }
- 
         [HttpPost]
         public IActionResult Create(ExamRequest examRequest)
         {

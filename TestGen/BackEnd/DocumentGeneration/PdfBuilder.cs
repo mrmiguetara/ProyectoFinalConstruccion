@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Core.Models;
 using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.ExtendedProperties;
-using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Justification = DocumentFormat.OpenXml.Wordprocessing.Justification;
@@ -19,11 +18,13 @@ namespace DocumentGeneration
     public class PdfBuilder
     {
         
-        private List<string> sections = new List<string>();
+        private List<Section> sections = new List<Section>();
+        private Exam exam;
 
-        public PdfBuilder(List<string> sections)
+        public PdfBuilder(List<Section> sections, Exam exam)
         {
             this.sections = sections;
+            this.exam = exam;
         }
         public Stream WordDocument()
         {
@@ -62,7 +63,7 @@ namespace DocumentGeneration
             return s.BaseStream;
         }
 
-        private OpenXmlElement ExamTitleHeader()
+        private Paragraph ExamTitleHeader()
         {
             var paragraphWithExamTitle = new Paragraph();
 
@@ -71,11 +72,9 @@ namespace DocumentGeneration
             var justification = new Justification(){ Val = JustificationValues.Center };
             paragraphProperties.Append(justification);
 
-            run.Append(new Text("Exam Title"));
+            run.Append(new Text($"Exam: {exam.Subject}"));
             run.Append(new Break());
-            run.Append(new Text("Trimestre 2019 - III"));
-            run.Append(new Break());
-            run.Append(new Text("Teachers name"));
+            run.Append(new Text($"Teacher: {exam.Teacher}"));
 
             paragraphWithExamTitle.Append(paragraphProperties);
             paragraphWithExamTitle.Append(run);
@@ -83,12 +82,12 @@ namespace DocumentGeneration
             return paragraphWithExamTitle;
         }
 
-        private OpenXmlElement EmptyParagraphSpace()
+        private Paragraph EmptyParagraphSpace()
         {
             return new Paragraph(new Run(new Break()));
         }
 
-        private OpenXmlElement StudentInformationSection()
+        private Paragraph StudentInformationSection()
         {
             var run = new Run();
             var paragraph = new Paragraph();
@@ -114,11 +113,27 @@ namespace DocumentGeneration
             int counter = 1;
             foreach (var section in sections)
             {
-                var examSection = new WordExamSections(section);
+                var questions = section.Questions.ToList();
+                var examSection = new WordExamSections(section.Instruction);
                 var sectionElement = examSection.SectionTitlePart(counter);
+                
                 body.Append(sectionElement);
+                PrintSectionQuestions(ref body, questions);
+                
                 counter++;
+                body.Append(EmptyParagraphSpace());    
             }
+        }
+
+        private void PrintSectionQuestions(ref Body body, List<Question> questions)
+        {
+            if (questions.Count > 0)
+            {
+                var sectionQuestions = new WordExamQuestions(questions);
+                Paragraph[] questionsParagraph = sectionQuestions.GetQuestionsParagraph();
+                body.Append(questionsParagraph);
+            }
+
         }
     }
 }
