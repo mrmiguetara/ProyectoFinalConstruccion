@@ -18,6 +18,12 @@ namespace Persistence.Repository
                 return _context.Questions.Where(question => question.SectionId == sectionId).ToHashSet();
             }
 
+            public Question GetQuestionByIdAndSection(int questionId, int sectionId)
+            {
+                return _context.Questions.FirstOrDefault(question =>
+                    question.Id == questionId && question.SectionId == sectionId);
+            }
+
             public void DeleteQuestionsForSection(int sectionId)
             {
                 var questions = FindAll(question => question.SectionId == sectionId);

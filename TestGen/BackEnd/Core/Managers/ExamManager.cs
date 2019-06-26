@@ -86,6 +86,8 @@ namespace Core.Managers
             
             trackedExam.Updated = DateTime.Now;
 
+            trackedExam.Sections = _sectionRepository.GetSectionsForExam(trackedExam.Id);
+
             _examRepository.Update(trackedExam);
             
             _examRepository.Save();
