@@ -7,6 +7,8 @@ namespace Core.Repository
     {
         ISet<Question> GetQuestionsForSection(int sectionId);
 
+        Question GetQuestionByIdAndSection(int questionId, int sectionId);
+
         void DeleteQuestionsForSection(int sectionId);
 
         void DeleteQuestionsForExam(int examId);

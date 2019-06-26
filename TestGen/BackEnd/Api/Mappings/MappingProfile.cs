@@ -14,6 +14,7 @@ namespace Api.Mappings
 
             CreateMap<ExamRequest, Exam>();
             CreateMap<SectionRequest, Section>();
+            CreateMap<QuestionRequest, Question>();
         }
     }
 }
