@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Api.ViewModels;
 using AutoMapper;
 using Core.Managers;
 using Core.Models;
+using DocumentGeneration;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -13,15 +15,11 @@ namespace Api.Controllers
     public class ExamsController : Controller
     {
         private readonly ExamManager _examManager;
-        private readonly SectionManager _sectionManager;
-
         public ExamsController(
-            ExamManager examManager,
-            SectionManager sectionManager
+            ExamManager examManager
             )
         {
             _examManager = examManager;
-            _sectionManager = sectionManager;
         }
 
         [HttpGet]
@@ -46,7 +44,21 @@ namespace Api.Controllers
             
             return Json(response);
         }
+        
+        [HttpGet("document/{id}")]
+        public IActionResult GetDocument(int id)
+        {
+            PdfBuilder pdfBuilder = new PdfBuilder();
 
+            Stream file = pdfBuilder.WordDocument();
+            
+            FileStreamResult fileStreamResult = new FileStreamResult(file, "application/ms-word");
+
+            fileStreamResult.FileDownloadName = $"Test {id}.docx";
+
+            return fileStreamResult;
+        }
+ 
         [HttpPost]
         public IActionResult Create(ExamRequest examRequest)
         {
