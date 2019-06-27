@@ -2,8 +2,8 @@
   <div>
     <account-view>
       <account-center-card>
-        <login-form></login-form>
-        <button @click="goToRegister" class="btn btn-secondary btn-block">Register</button>
+        <register-form />
+        <button @click="goToLogin" class="btn btn-secondary btn-block">Sign In</button>
       </account-center-card>
     </account-view>
   </div>
@@ -12,23 +12,22 @@
 <script>
 import AccountView from '@/components/utilities/AccountView'
 import AccountCenterCard from "@/components/account/AccountCenterCard";
-import LoginForm from "@/components/account/LoginForm";
+import RegisterForm from "@/components/account/RegisterForm";
 
 export default {
-  name: "login",
+  name: "register",
   components: {
     AccountCenterCard,
     AccountView,
-    LoginForm
+    RegisterForm
   },
   methods: {
-    goToRegister(){
-      this.$router.push({name: 'register'})
-    }
+      goToLogin(){
+          this.$router.push({name: 'login'})
+      }
   }
 }
 </script>
 
 <style>
-
 </style>
