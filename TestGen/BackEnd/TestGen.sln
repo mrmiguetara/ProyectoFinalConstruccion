@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{57E88D54-397E-4AE1-BD1E-0F4C92F5A01A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{57E88D54-397E-4AE1-BD1E-0F4C92F5A01A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{D2A135E1-F0AD-4988-8745-453CBFE68F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{D2A135E1-F0AD-4988-8745-453CBFE68F7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{FA1385B0-EC0E-43E3-BF7B-928093407716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{FA1385B0-EC0E-43E3-BF7B-928093407716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Test", "Core.Test\Core.Test.csproj", "{97B73A96-5BC6-48C5-8DF8-0203DF9BFB25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Test", "Core.Test\Core.Test.csproj", "{97B73A96-5BC6-48C5-8DF8-0203DF9BFB25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentGeneration", "DocumentGeneration\DocumentGeneration.csproj", "{019378BF-FFC6-47B1-8338-F428ADAAF328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentGeneration", "DocumentGeneration\DocumentGeneration.csproj", "{019378BF-FFC6-47B1-8338-F428ADAAF328}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{E54AA061-349D-4C9E-9ED5-C12971D373D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{019378BF-FFC6-47B1-8338-F428ADAAF328}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{019378BF-FFC6-47B1-8338-F428ADAAF328}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{019378BF-FFC6-47B1-8338-F428ADAAF328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54AA061-349D-4C9E-9ED5-C12971D373D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54AA061-349D-4C9E-9ED5-C12971D373D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54AA061-349D-4C9E-9ED5-C12971D373D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54AA061-349D-4C9E-9ED5-C12971D373D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
