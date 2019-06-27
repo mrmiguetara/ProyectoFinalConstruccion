@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/Account/Login'
 import Register from './views/Account/Register'
+import ExamList from './views/Application/Exam/ExamList'
+
 
 Vue.use(Router)
 
@@ -21,6 +23,13 @@ export default new Router({
     {
       path: '/app',
       component: Home,
+      children: [
+        {
+          path: '/exams',
+          name: 'app.exams',
+          component: ExamList
+        }
+      ]
     },
     {
       path: '*',

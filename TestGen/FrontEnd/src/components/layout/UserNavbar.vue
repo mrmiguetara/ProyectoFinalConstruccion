@@ -12,7 +12,7 @@
             <span class="user-email">admin@admin.com</span>
           </div>
           <div class="col">
-            <button class="btn btn-dark btn-nav">Log Out</button>
+            <button class="btn btn-dark btn-nav" @click="goToLogin">Log Out</button>
           </div>
         </div>
       </div>
@@ -22,7 +22,12 @@
 
 <script>
 export default {
-  name: "user-navbar"
+  name: "user-navbar",
+  methods: {
+      goToLogin(){
+          this.$router.push({name: 'login'})
+      }
+  },
 };
 </script>
 

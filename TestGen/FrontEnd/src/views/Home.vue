@@ -3,7 +3,9 @@
     <user-navbar />
     <div class="exameter-background"></div>
       <div class="exameter exameter-container">
-        <router-view></router-view>
+        <div class="container-fluid">
+          <router-view></router-view>
+        </div>
       </div>
   </div>
 </template>
@@ -37,6 +39,10 @@ export default {
       min-height: 88vh;
       margin: 25px;
       box-shadow: 1px 2px 4px 3px rgba(0,0,0,0.3);
+
+      .container-fluid {
+        padding-top: 10px;
+      }
     }
   }
 </style>

@@ -11,13 +11,18 @@
     <div class="text-center mb-3">
         <a href="#">Forgot your password?</a>
     </div>
-    <button class="btn btn-primary btn-block">Login</button>
+    <button class="btn btn-primary btn-block" @click="goToHome">Login</button>
   </div>
 </template>
 
 
 <script>
 export default {
-  name: "login-form"
+  name: "login-form",
+  methods: {
+    goToHome(){
+      this.$router.push({name: 'app.exams'})
+    }
+  }
 };
 </script>
