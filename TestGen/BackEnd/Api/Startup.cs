@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Api.Mappings;
+using AutoMapper;
+using Core.Managers;
+using Core.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Persistence;
+using Persistence.Repository;
 
 namespace Api
 {
@@ -30,8 +28,26 @@ namespace Api
             string connectionString = Configuration.GetConnectionString("OzunaConnection");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            //DB CONTEXT DEPENDENCY
             services.AddDbContext<GeneratorDbContext>(options =>
                 options.UseMySQL(connectionString, builder => builder.MigrationsAssembly("Api")));
+
+            //REPOSITORY DEPENDENCIES
+            services.AddScoped<IExamRepository, ExamRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IQuestionTypeRepository, QuestionTypeRepository>();
+            services.AddScoped<ISectionRepository, SectionRepository>();
+            
+            //MANAGERS DEPENDENCIES
+            services.AddScoped<ExamManager, ExamManager>();
+            services.AddScoped<QuestionTypeManager, QuestionTypeManager>();
+            services.AddScoped<QuestionManager, QuestionManager>();
+            services.AddScoped<SectionManager, SectionManager>();
+            
+            //MAPPER INITIALIZATION
+            Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
+            services.AddAutoMapper();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

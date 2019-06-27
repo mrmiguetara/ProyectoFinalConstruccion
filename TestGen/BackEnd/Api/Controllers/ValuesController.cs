@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Managers;
+using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -10,11 +12,18 @@ namespace Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        private readonly QuestionTypeManager _questionTypeManager;
+
+        public ValuesController(QuestionTypeManager questionTypeManager)
+        {
+            _questionTypeManager = questionTypeManager;
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<QuestionType> Get()
         {
-            return new string[] {"value1", "value2"};
+            return _questionTypeManager.GetQuestionTypeById(1);
         }
 
         // GET api/values/5

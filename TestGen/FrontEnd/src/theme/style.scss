@@ -1,0 +1,36 @@
+
+@import './theme.scss';
+
+.background-view {
+    background-image: url('./assets/Background.png');
+    width: 100%;
+    height: 100vh;
+    background-size: 153em;
+    background-position-y: -8em; 
+    background-position-x: -2em; 
+    position: fixed;
+    z-index: -20;
+}
+
+.form-group {
+    .form-control {
+        background: white;
+        border-radius: 5px !important;
+        border: solid 1px rgba(0,0,0,0.2);
+        height: 45px;
+
+        &::placeholder {
+            color: $gray-400;
+        }
+    }
+    label {
+        margin-left: 3px;
+        color: theme-color("dark-label");
+    }
+}
+
+.btn {
+    &.btn-block {
+        height: 50px !important;
+    }
+}
