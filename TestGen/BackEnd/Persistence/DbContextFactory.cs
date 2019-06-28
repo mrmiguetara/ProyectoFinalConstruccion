@@ -10,6 +10,12 @@ namespace Persistence
         public GeneratorDbContext CreateDbContext(string[] args)
         {
 
+            return GetContext();
+
+        }
+
+        public GeneratorDbContext GetContext()
+        {
             var configurationBuilder = new ConfigurationBuilder();
             var path = Path.Combine(Directory.GetCurrentDirectory(), "../Api/appsettings.json");
             configurationBuilder.AddJsonFile(path, false);
@@ -17,8 +23,22 @@ namespace Persistence
             var configuration = configurationBuilder.Build();
             var connectionString = configuration.GetConnectionString("OzunaConnection");
             var builder = new DbContextOptionsBuilder<GeneratorDbContext>();
-            builder.UseMySQL(connectionString);
+            builder.UseMySql(connectionString);
             return new GeneratorDbContext(builder.Options); 
-        } 
+        }
+
+        public GeneratorDbContext GetTestContext()
+        {
+            var builder = new DbContextOptionsBuilder<GeneratorDbContext>();
+            builder.UseInMemoryDatabase();
+            return new GeneratorDbContext(builder.Options); 
+        }
+        
+        public GeneratorDbContext GetContextMySqlConnection(string connectionString)
+        {
+            var builder = new DbContextOptionsBuilder<GeneratorDbContext>();
+            builder.UseMySql(connectionString);
+            return new GeneratorDbContext(builder.Options); 
+        }
     }
 }
