@@ -4,11 +4,14 @@ using System.Linq;
 using Api.ViewModels;
 using Core.Managers;
 using DocumentGeneration;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Route("api/documents")]
+    [ApiController]
+    [Authorize]
     public class ExamDocumentsController : Controller
     {
 

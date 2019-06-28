@@ -6,12 +6,14 @@ using AutoMapper;
 using Core.Managers;
 using Core.Models;
 using DocumentGeneration;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ExamsController : Controller
     {
         private readonly ExamManager _examManager;

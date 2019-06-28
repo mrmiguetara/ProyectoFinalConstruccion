@@ -3,11 +3,14 @@ using Api.ViewModels;
 using AutoMapper;
 using Core.Managers;
 using Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Route("api/sections")]
+    [ApiController]
+    [Authorize]
     public class SectionController : Controller
     {
         private readonly SectionManager _sectionManager;
