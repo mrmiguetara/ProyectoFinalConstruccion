@@ -27,6 +27,19 @@
         margin-left: 3px;
         color: theme-color("dark-label");
     }
+
+    &.is-invalid {
+        label {
+            color: $danger;
+        }
+        .form-control {
+            border-color: $danger;
+            &:focus {
+                border-color: $danger;
+                box-shadow: $danger;
+            }
+        }
+    }
 }
 
 .btn {

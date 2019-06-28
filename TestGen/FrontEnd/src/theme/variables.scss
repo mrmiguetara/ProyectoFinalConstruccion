@@ -1,0 +1,35 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+
+$red: #ff5252;
+$orange: #f39c12;
+$yellow: #f1c40f;
+$purple: #8e44ad;
+$blue: #2860C3;
+
+$colors: (
+        "blue": $blue,
+        "indigo": $indigo,
+        "purple": $purple,
+        "pink": $pink,
+        "red": $red,
+        "orange": $orange,
+        "yellow": $yellow,
+        "green": $green,
+        "teal": $teal,
+        "cyan": $cyan,
+        "white": $white,
+        "gray": $gray-600,
+        "gray-dark": $gray-800
+) !default;
+
+
+$theme-colors: (
+        "secondary": $blue,
+        "primary": #93D8F8,
+        "info": #227093,
+        "success": #3ae374,
+        "danger": #b33939,
+        "warning": #ffb142,
+        "dark-label": #2c3e50
+);

@@ -3,10 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue'
+import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
 
 Vue.use(BootstrapVue)
+Vue.use(Vuelidate)
 
 new Vue({
   router,

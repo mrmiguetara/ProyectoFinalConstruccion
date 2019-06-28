@@ -9,10 +9,13 @@
 
 <script>
 import ListActions from '@/components/shared/ListActions';
+import UserExamsTable from '@/components/exams/UserExamsTable';
+
 export default {
     name: 'exam-list',
     components: {
-        ListActions
+        ListActions,
+        UserExamsTable
     },
     methods: {
         search(query){

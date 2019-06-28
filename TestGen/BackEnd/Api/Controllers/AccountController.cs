@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Api.ViewModels;
+using AutoMapper;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -101,7 +102,7 @@ namespace Api.Controllers
             var tokenResult = new TokenResponse
             {
                 Token = $"{new JwtSecurityTokenHandler().WriteToken(token)}",
-                User = user
+                User = Mapper.Map<UserResponse>(user)
             };
             
             return tokenResult;

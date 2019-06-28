@@ -1,36 +1,7 @@
-@import '../../node_modules/bootstrap/scss/functions';
-@import '../../node_modules/bootstrap/scss/variables';
 
-$theme-colors: (
-    "secondary": #3A5FA0,
-    "primary": #93D8F8,
-    "info": #227093,
-    "success": #3ae374,
-    "danger": #b33939,
-    "warning": #ffb142,
-    "dark-label": #2c3e50 
-);
 
-$red: #ff5252;
-$orange: #f39c12;
-$yellow: #f1c40f;
-$purple: #8e44ad;
+@import './variables';
 
-$colors: (
-  "blue": $blue,
-  "indigo": $indigo,
-  "purple": $purple,
-  "pink": $pink,
-  "red": $red,
-  "orange": $orange,
-  "yellow": $yellow,
-  "green": $green,
-  "teal": $teal,
-  "cyan": $cyan,
-  "white": $white,
-  "gray": $gray-600,
-  "gray-dark": $gray-800
-) !default;
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
