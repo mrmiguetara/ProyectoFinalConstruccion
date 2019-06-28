@@ -4,11 +4,14 @@ using Api.ViewModels;
 using AutoMapper;
 using Core.Managers;
 using Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Route("api/questions")]
+    [ApiController]
+    [Authorize]
     public class QuestionController : Controller
     {
 
