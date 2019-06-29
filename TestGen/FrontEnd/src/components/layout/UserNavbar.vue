@@ -9,10 +9,10 @@
         <div class="row">
             <div class="col-5"></div>
           <div class="col">
-            <span class="user-email">admin@admin.com</span>
+            <span class="user-email">{{username}}</span>
           </div>
           <div class="col">
-            <button class="btn btn-dark btn-nav" @click="goToLogin">Sign Out</button>
+            <button class="btn btn-dark btn-nav" @click="signOut">Sign Out</button>
           </div>
         </div>
       </div>
@@ -21,13 +21,25 @@
 </template>
 
 <script>
+
+  const accountManager = require('../../managers/account.manager.js').default;
 export default {
   name: "user-navbar",
+  data(){
+    return {
+      username: ''
+    };
+  },
   methods: {
-      goToLogin(){
+      signOut(){
+          accountManager.signOutUser();
           this.$router.push({name: 'login'})
       }
   },
+  created() {
+    accountManager.getUserDataFromLocalStorage();
+    this.username = accountManager.getUserData()['userName'];
+  }
 };
 </script>
 

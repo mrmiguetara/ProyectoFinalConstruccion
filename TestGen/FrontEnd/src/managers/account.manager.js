@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = require('../globalVariables').baseUrl;
 
 
-export default class AccountManager {
+class AccountManager {
 
     constructor() {
         this.token = "";
@@ -17,21 +17,19 @@ export default class AccountManager {
      */
     logUserIn(email, password){
 
-        console.log(baseUrl, "BASE");
         let promise = new Promise( (resolve, reject) => {
             axios.post(`${baseUrl}/account`, {
                 email: email,
                 password: password
             }).then(res => {
-                console.log(res, "RESULT");
                 this.token = res.data.token;
                 this.user = res.data.user;
                 this.user["token"] = this.token;
                 this.saveUserDataToLocalStorage();
+                axios.defaults.headers.common["Authorization"] = `Bearer ${this.user.token}`;
                 resolve(this.user);
             }).catch(err => {
                 reject(err);
-                console.log("There was an error during the login process");
         }) });
 
         return promise;
@@ -45,18 +43,31 @@ export default class AccountManager {
         this.user = JSON.parse(localStorage.getItem("userData"));
     }
 
+    /***
+     * Gets the user token
+     * @returns {string|CancelToken|*}
+     */
     getUserToken(){
         this.getUserDataFromLocalStorage();
         return this.user.token;
     }
 
+    /***
+     * This methods returns the user object stored in the localStorage
+     * @returns {object}
+     */
     getUserData() {
         this.getUserDataFromLocalStorage();
         return this.user;
     }
 
     checkIfLoggedIn(){
-       return localStorage.getItem("userData") !== "";
+       if (localStorage.getItem("userData") !== null) {
+           this.getUserDataFromLocalStorage();
+           axios.defaults.headers.common["Authorization"] = `Bearer ${this.user.token}`;
+           return true;
+       }
+       return false
     }
 
     signOutUser(){
@@ -64,3 +75,5 @@ export default class AccountManager {
     }
 
 }
+
+export default new AccountManager();

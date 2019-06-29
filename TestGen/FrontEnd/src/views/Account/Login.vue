@@ -12,7 +12,7 @@
 <script>
 import AccountView from '@/components/utilities/AccountView'
 import AccountCenterCard from "@/components/account/AccountCenterCard";
-import LoginForm from "@/components/account/LoginForm";
+import LoginForm from "../../components/account/LoginForm.vue";
 
 
 export default {

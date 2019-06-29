@@ -26,11 +26,9 @@
 
 
 <script>
-  import AccountManger from '../../managers/account.manager';
   import { required, email } from 'vuelidate/lib/validators'
 
-  const accountManager = new AccountManger();
-
+  const accountManager = require('../../managers/account.manager').default;
 
   export default {
     name: "login-form",
@@ -72,6 +70,11 @@
                   });
 
         }
+      }
+    },
+    created(){
+      if (accountManager.checkIfLoggedIn()) {
+        this.goToHome();
       }
     }
   };

@@ -11,12 +11,15 @@
 </template>
 
 <script>
-import UserNavbar from '../components/layout/UserNavbar'
+import UserNavbar from '../components/layout/UserNavbar';
 
 export default {
   name: "home",
   components: {
     UserNavbar
+  },
+  created() {
+
   }
 };
 </script>

@@ -24,6 +24,11 @@ namespace Core.Managers
             _questionRepository = questionRepository;
         }
 
+
+        public ISet<Exam> GetAllExamsForUserId(int id) =>
+            _examRepository.FindAll(exam => exam.UserId == id).ToHashSet();
+        
+        
         public ISet<Exam> GetAllExams() => _examRepository.Get();
 
 
