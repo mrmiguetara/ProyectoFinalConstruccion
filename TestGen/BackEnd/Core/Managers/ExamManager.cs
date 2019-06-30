@@ -31,7 +31,6 @@ namespace Core.Managers
         
         public ISet<Exam> GetAllExams() => _examRepository.Get();
 
-
         public Exam GetExamWithSectionAndQuestions(int id)
         {
             Exam exam = _examRepository.Find(id);

@@ -23,6 +23,11 @@
                         <div class="col">
                             <button class="table-btn btn btn-secondary" @click="edit(i)">Edit</button>
                         </div>
+                        <div class="col">
+                            <button class="table-btn btn btn-primary" @click="generator(exam.id)">
+                                <font-awesome-icon icon="cogs" />
+                            </button>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -47,6 +52,9 @@
             },
             remove(index){
                 this.$emit('remove', index);
+            },
+            generator(id){
+                this.$router.push({name: 'app.generator', params: {id: id}});
             }
         }
     }

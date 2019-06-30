@@ -4,7 +4,9 @@
     <div class="exameter-background"></div>
       <div class="exameter exameter-container">
         <div class="container-fluid">
-          <router-view></router-view>
+          <transition name="fade"  mode="out-in">
+            <router-view></router-view>
+          </transition>
         </div>
       </div>
   </div>

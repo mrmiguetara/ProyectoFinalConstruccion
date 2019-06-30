@@ -38,7 +38,7 @@ namespace Api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Exam exam = _examManager.GetExamWithSectionAndQuestions(id);
+            Exam exam = _examManager.GetExam(id);
 
             if (exam == null)
             {

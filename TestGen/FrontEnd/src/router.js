@@ -4,9 +4,9 @@ import Home from './views/Home.vue'
 import Login from './views/Account/Login'
 import Register from './views/Account/Register'
 import ExamList from './views/Application/Exam/ExamList'
+import Generator from './views/Application/Generator/Generator'
 
-
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -21,13 +21,18 @@ export default new Router({
       component: Register
     },
     {
-      path: '/app',
+      path: '/application',
       component: Home,
       children: [
         {
           path: '/exams',
           name: 'app.exams',
           component: ExamList
+        },
+        {
+          path: '/generator/:id',
+          name: 'app.generator',
+          component: Generator
         }
       ]
     },
