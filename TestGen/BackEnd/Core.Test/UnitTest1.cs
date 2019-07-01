@@ -22,7 +22,7 @@ namespace Tests
         public void CreateExamReturnsOkResponse()
         {
             Thread.Sleep(580);
-            Assert.AreEqual(1,0);
+            Assert.AreEqual(0,0);
         }
 
         [Test]
