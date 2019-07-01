@@ -11,6 +11,10 @@ namespace Api.ViewModels
         
         public string Teacher { get; set; }
         
+        public int UserId { get; set; }
+
+        public UserResponse User { get; set; }
+        
         public virtual List<SectionResponse> Sections { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/exams")]
     [ApiController]
     [Authorize]
     public class ExamsController : Controller
@@ -27,18 +27,18 @@ namespace Api.Controllers
             _sectionManager = sectionManager;
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpGet("user/{id}")]
+        public IActionResult GetAll(int id)
         {
-            ISet<Exam> exams = _examManager.GetAllExams();
+            ISet<Exam> exams = _examManager.GetAllExamsForUserId(id);
 
-            return Json(exams);
+            return Json(exams); 
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Exam exam = _examManager.GetExamWithSectionAndQuestions(id);
+            Exam exam = _examManager.GetExam(id);
 
             if (exam == null)
             {
@@ -81,8 +81,8 @@ namespace Api.Controllers
 
         }
         
-        
-        [HttpDelete]
+            
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             Exam deletedExam = _examManager.DeleteExam(id);

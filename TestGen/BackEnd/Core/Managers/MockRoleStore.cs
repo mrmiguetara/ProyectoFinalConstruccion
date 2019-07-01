@@ -9,7 +9,7 @@ namespace Core.Managers
     {
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public async Task<IdentityResult> CreateAsync(IdentityRole role, CancellationToken cancellationToken)

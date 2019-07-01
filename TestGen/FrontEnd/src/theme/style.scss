@@ -27,10 +27,40 @@
         margin-left: 3px;
         color: theme-color("dark-label");
     }
+
+    &.is-invalid {
+        label {
+            color: $danger;
+        }
+        .form-control {
+            border-color: $danger;
+            &:focus {
+                border-color: $danger;
+                box-shadow: $danger;
+            }
+        }
+    }
 }
 
 .btn {
     &.btn-block {
         height: 50px !important;
+    }
+    &:focus {
+        border: none;
+        outline: none !important;
+    }
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.3);
+}
+
+.badge-btn {
+    border-radius: 60px;
+    padding: 3px 20px;
+    border: none;
+    margin-top: 5px;
+    transition: all 0.3s;
+    &:focus {
+        outline: none;
+        opacity: 1;
     }
 }

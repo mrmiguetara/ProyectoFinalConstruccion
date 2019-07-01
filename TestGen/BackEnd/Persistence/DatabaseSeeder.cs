@@ -38,7 +38,8 @@ namespace Persistence
             {
                 Id = 1,
                 Subject = "Historia",
-                Teacher = "Kakin"
+                Teacher = "Kakin",
+                UserId = 1
             }
             );
 

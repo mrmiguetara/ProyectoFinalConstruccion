@@ -4,19 +4,24 @@
     <div class="exameter-background"></div>
       <div class="exameter exameter-container">
         <div class="container-fluid">
-          <router-view></router-view>
+          <transition name="fade"  mode="out-in">
+            <router-view></router-view>
+          </transition>
         </div>
       </div>
   </div>
 </template>
 
 <script>
-import UserNavbar from '../components/layout/UserNavbar'
+import UserNavbar from '../components/layout/UserNavbar';
 
 export default {
   name: "home",
   components: {
     UserNavbar
+  },
+  created() {
+
   }
 };
 </script>

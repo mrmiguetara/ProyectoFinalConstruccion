@@ -14,7 +14,8 @@ namespace Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Core.Models.ApplicationUser", b =>
                 {
@@ -67,7 +68,11 @@ namespace Persistence.Migrations
 
                     b.Property<DateTime>("Updated");
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Exams");
 
@@ -75,10 +80,11 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(3760),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(1190),
                             Subject = "Historia",
                             Teacher = "Kakin",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(3770)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(1210),
+                            UserId = 0
                         });
                 });
 
@@ -115,306 +121,306 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(7350),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(6260),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(7350)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(6260)
                         },
                         new
                         {
                             Id = 2,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8740),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8190),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8740)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8200)
                         },
                         new
                         {
                             Id = 3,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8760),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8220),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8760)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8220)
                         },
                         new
                         {
                             Id = 4,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8760),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8220),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8760)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8220)
                         },
                         new
                         {
                             Id = 5,
                             Answer = "false",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8230),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8230)
                         },
                         new
                         {
                             Id = 6,
                             Answer = "false",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8230),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8230)
                         },
                         new
                         {
                             Id = 7,
                             Answer = "false",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8230),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8240)
                         },
                         new
                         {
                             Id = 8,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8770),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8240),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8780)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8240)
                         },
                         new
                         {
                             Id = 9,
                             Answer = "false",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8780),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8240),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8780)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8240)
                         },
                         new
                         {
                             Id = 10,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8780),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8250),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8780)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8250)
                         },
                         new
                         {
                             Id = 11,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8780),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8250),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8250)
                         },
                         new
                         {
                             Id = 12,
                             Answer = "true",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8250),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy verdadero",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8260)
                         },
                         new
                         {
                             Id = 13,
                             Answer = "false",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8260),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8260)
                         },
                         new
                         {
                             Id = 14,
                             Answer = "false",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8260),
                             QuestionTypeId = 1,
                             SectionId = 1,
                             Title = "Yo soy falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8260)
                         },
                         new
                         {
                             Id = 15,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8790),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8270),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(8800)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8270)
                         },
                         new
                         {
                             Id = 16,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9140),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8750),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9150)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8750)
                         },
                         new
                         {
                             Id = 17,
                             Answer = "d",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9160),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8770),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9160)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8770)
                         },
                         new
                         {
                             Id = 18,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9160),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8770),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9160)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8770)
                         },
                         new
                         {
                             Id = 19,
                             Answer = "b",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9160),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8780),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9160)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8780)
                         },
                         new
                         {
                             Id = 20,
                             Answer = "c",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9170),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8780),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9170)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8780)
                         },
                         new
                         {
                             Id = 21,
                             Answer = "d",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9170),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8790),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9170)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8790)
                         },
                         new
                         {
                             Id = 22,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9170),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8790),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9170)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8790)
                         },
                         new
                         {
                             Id = 23,
                             Answer = "b",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9180),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8790),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9180)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8800)
                         },
                         new
                         {
                             Id = 24,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9180),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8800),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9180)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8800)
                         },
                         new
                         {
                             Id = 25,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9180),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8800),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9180)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8800)
                         },
                         new
                         {
                             Id = 26,
                             Answer = "a",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9190),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8810),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9190)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8810)
                         },
                         new
                         {
                             Id = 27,
                             Answer = "d",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9190),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8810),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9190)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8810)
                         },
                         new
                         {
                             Id = 28,
                             Answer = "c",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9190),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8810),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9190)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8810)
                         },
                         new
                         {
                             Id = 29,
                             Answer = "b",
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9200),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8820),
                             Options = "{a: \"Opcion a \", b: \"Opcion b \", c: \"Opcion c \", d: \"Opcion d \"}",
                             QuestionTypeId = 2,
                             SectionId = 2,
                             Title = "Que letra es la correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(9200)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(8820)
                         });
                 });
 
@@ -438,30 +444,30 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 278, DateTimeKind.Local).AddTicks(2920),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 431, DateTimeKind.Local).AddTicks(6800),
                             Type = "Verdadero o Falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 284, DateTimeKind.Local).AddTicks(9310)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(6380)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 285, DateTimeKind.Local).AddTicks(340),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(8350),
                             Type = "Seleccion Multiple",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 285, DateTimeKind.Local).AddTicks(350)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(8350)
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 285, DateTimeKind.Local).AddTicks(360),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(8370),
                             Type = "Seleccion Simple",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 285, DateTimeKind.Local).AddTicks(360)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(8370)
                         },
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 285, DateTimeKind.Local).AddTicks(360),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(8370),
                             Type = "Completa",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 285, DateTimeKind.Local).AddTicks(360)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 441, DateTimeKind.Local).AddTicks(8370)
                         });
                 });
 
@@ -489,19 +495,27 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(5580),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(3840),
                             ExamId = 1,
                             Instruction = "Escriba si es verdadero o falso",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(5580)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(3850)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(6380),
+                            Created = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(4900),
                             ExamId = 1,
                             Instruction = "Eliga la respuesta correcta",
-                            Updated = new DateTime(2019, 6, 27, 8, 40, 42, 286, DateTimeKind.Local).AddTicks(6390)
+                            Updated = new DateTime(2019, 6, 28, 18, 50, 52, 444, DateTimeKind.Local).AddTicks(4910)
                         });
+                });
+
+            modelBuilder.Entity("Core.Models.Exam", b =>
+                {
+                    b.HasOne("Core.Models.ApplicationUser", "User")
+                        .WithMany("Exams")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Core.Models.Question", b =>

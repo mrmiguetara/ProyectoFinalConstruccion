@@ -95,6 +95,18 @@ namespace Api
                     };
                 });
 
+            //CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("exameterPolicy", builder =>
+                {
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyOrigin();
+                    builder.AllowCredentials();
+                });
+            });
+            
             
             //MAPPER INITIALIZATION
             Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
@@ -131,7 +143,8 @@ namespace Api
 
                 userManager.CreateAsync(newuser, "admin");
             }
-            
+
+            app.UseCors("exameterPolicy");
             
             app.UseHttpsRedirection();
 

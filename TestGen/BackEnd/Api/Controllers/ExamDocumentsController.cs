@@ -44,7 +44,7 @@ namespace Api.Controllers
 
             var docResponse = new DocumentResponse
             {
-                BinaryFile = byteArray,
+                Base64 = Convert.ToBase64String(byteArray),
                 FileName = $"{exam.Subject}_{exam.Teacher}_{DateTime.Now.ToShortTimeString()}.docx",
                 ApplicationFormat = "application/ms-word"
             };

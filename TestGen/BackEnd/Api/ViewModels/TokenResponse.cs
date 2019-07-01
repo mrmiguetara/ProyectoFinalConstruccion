@@ -6,6 +6,6 @@ namespace Api.ViewModels
     {
         public string Token { get; set; }
         
-        public ApplicationUser User { get; set; }
+        public UserResponse User { get; set; }
     }
 }
