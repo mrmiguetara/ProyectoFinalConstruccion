@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="row bg-light navbase align-items-center">
-      <div class="col"></div>
       <div class="col">
         <img class="nav-img" src="../../assets/logo.png">
       </div>
@@ -50,7 +49,7 @@ export default {
   img.nav-img {
     width: 250px;
     position: relative;
-    left: 16%;
+    left: 1%;
     top: -5px;
   }
 

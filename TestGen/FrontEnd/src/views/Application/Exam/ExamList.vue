@@ -15,7 +15,7 @@ import ListActions from '../../../components/shared/ListActions.vue';
 import UserExamsTable from '../../../components/exams/UserExamsTable.vue';
 import ExamsFormModal from '../../../components/exams/ExamsFormModal.vue';
 
-const exams = require('../../../mixins/exams.mixing').default;
+const exams = require('../../../mixins/exams.mixing').default   ;
 
 export default {
     name: 'exam-list',

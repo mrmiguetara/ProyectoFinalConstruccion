@@ -2,7 +2,8 @@ import axios from 'axios';
 
 
 const baseUrl = require('../globalVariables.js').baseUrl;
-const accountManager = require('../managers/account.manager.js').default;
+const managerFile = require('../managers/account.manager.js');
+const accountManager = managerFile.default;
 
 let user;
 
@@ -18,6 +19,14 @@ const examsMixing = {
                const endPoint = `${baseUrl}/exams/user/${user["id"]}`;
                return await axios.get(endPoint);
            });
+        },
+
+        getExam: async (examId) => {
+            return checkHasToken( async () => {
+                const endPoint = `${baseUrl}/exams/${examId}`;
+                const result = await axios.get(endPoint);
+                return result;
+            })
         },
 
         createExam: async (examRequest) => {
@@ -47,11 +56,11 @@ const examsMixing = {
     }
 };
 
+export default examsMixing;
+
 function checkHasToken(callback){
     if(accountManager.checkIfLoggedIn()){
         return callback();
     }
 }
 
-
-export default examsMixing;

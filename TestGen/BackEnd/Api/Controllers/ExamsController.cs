@@ -32,7 +32,7 @@ namespace Api.Controllers
         {
             ISet<Exam> exams = _examManager.GetAllExamsForUserId(id);
 
-            return Json(exams);
+            return Json(exams); 
         }
 
         [HttpGet("{id}")]

@@ -41,6 +41,7 @@ class AccountManager {
 
     getUserDataFromLocalStorage() {
         this.user = JSON.parse(localStorage.getItem("userData"));
+        axios.defaults.headers.common["Authorization"] = `Bearer ${this.user.token}`;
     }
 
     /***
@@ -58,6 +59,11 @@ class AccountManager {
      */
     getUserData() {
         this.getUserDataFromLocalStorage();
+        if (this.user == null){
+            this.user = {
+                id: 0
+            };
+        }
         return this.user;
     }
 
@@ -77,3 +83,9 @@ class AccountManager {
 }
 
 export default new AccountManager();
+
+export function checkHasToken(callback){
+    if(accountManager.checkIfLoggedIn()){
+        return callback();
+    }
+}

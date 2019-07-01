@@ -73,7 +73,6 @@
             submit() {
                 this.$v.form.$touch();
                 if (!this.$v.form.$invalid) {
-                    console.log(this.form);
                     if (!this.editing){
                         this.createExam(this.form).then(() => {
                            this.$emit('success');

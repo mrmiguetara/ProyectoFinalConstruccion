@@ -58,10 +58,11 @@ namespace Core.Managers
         public Question UpdateQuestion(Question question)
         {
             var trackingQuestion = _questionRepository.Find(question.Id);
-            
-            PropertyCopier<Question, Question>.Copy(question, 
-                trackingQuestion, true, 
-                "QuestionType", "Section");
+
+            trackingQuestion.Answer = question.Answer;
+            trackingQuestion.Title = question.Title;
+            trackingQuestion.SectionId = question.SectionId;
+            trackingQuestion.Options = question.Options;
             
             trackingQuestion.Updated = DateTime.Now;
 
