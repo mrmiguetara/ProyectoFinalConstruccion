@@ -41,7 +41,14 @@ class AccountManager {
 
     getUserDataFromLocalStorage() {
         this.user = JSON.parse(localStorage.getItem("userData"));
-        axios.defaults.headers.common["Authorization"] = `Bearer ${this.user.token}`;
+        if (this.user != null) {
+            axios.defaults.headers.common["Authorization"] = `Bearer ${this.user.token}`;
+        } else {
+            this.user = {
+                id: 0,
+                token: ''
+            };
+        }
     }
 
     /***
